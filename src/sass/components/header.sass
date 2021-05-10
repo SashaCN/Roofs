@@ -1,0 +1,73 @@
+.header-line
+  padding: 10px 0
+  background-color: $primary
+  a 
+    font-family: "Inter"
+    font-weight: 500
+    color: #fff
+
+.logo-wrap 
+  width: 20%
+  img 
+    object-fit: cover
+    width: 100%
+
+.menu 
+  width: 55%
+  padding: 0 5%
+  box-sizing: border-box
+  ul 
+    list-style: none 
+    text-transform: uppercase
+    padding: 0
+  a 
+    position: relative
+    font-size: 1.8rem 
+    text-decoration: none
+    transition: $trs
+    &:hover 
+      color: $second 
+      &:before
+        transform: scaleX(1)
+    &:before 
+      content: ''
+      position: absolute 
+      bottom: -5px
+      left: -10%
+      height: 2px
+      width: 120%
+      background-color: $second 
+      transform: scaleX(0)
+      transform-origin: left
+      transition: $trs
+
+.tel 
+  display: inline-block
+  position: relative
+  max-width: 25%
+  text-align: right
+  svg,
+  a:before 
+    position: absolute
+    top: 0
+    left: -40px 
+    width: 21px
+    height: 34px 
+    transform: translateY(-4px)
+  svg 
+    left: 0
+    fill: #fff
+    transition: $trs
+  a 
+    position: relative
+    font-size: 24px
+    margin-left: 40px
+    transition: $trs
+    &:hover 
+      color: $second 
+      & + svg 
+        fill: $second
+    &::before
+      content: ''
+      z-index: 1
+      
