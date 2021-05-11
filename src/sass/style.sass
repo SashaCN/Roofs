@@ -1,5 +1,6 @@
 @import helper/vars
 @import helper/mixin
+@import helper/fonts
 @import components/header
 @import components/footer
 
@@ -7,6 +8,9 @@ html
   font-size: 10px
 
 body 
+  font-family: 'Inter', sans-serif
+
+*
   margin: 0
 
 a 
@@ -21,3 +25,106 @@ a
   display: flex
   justify-content: space-between
   align-items: center
+
+@media screen and (max-width: 1700px)
+  .info
+    padding: 80px
+
+@media screen and (max-width: 1600px)
+  h1 
+    font-size: 5.2rem
+    line-height: 6rem
+
+@media screen and (max-width: 1500px)
+  .header-content 
+    padding: 68px 50px
+  .soc 
+    transform: translateX(38px)
+
+@media screen and (max-width: 1400px)
+  .text-wrap 
+    margin: 7% 0 7% 7%
+  .border
+    &::before,
+    &::after
+      height: 20%
+    &::before 
+      top: -20%
+    &::after 
+      bottom: -20%
+
+@media screen and (max-width: 1300px)
+  .info 
+    padding: 80px 50px
+
+@media screen and (max-width: 1250px)
+  html 
+    font-size: 8px
+  .tel 
+    &::before,
+    svg 
+      width: 18px
+      height: 30px
+      
+
+@media screen and (max-width: 1100px)
+  .info 
+    width: 75%
+
+@media screen and (max-width: 990px)
+  .menu 
+    padding: 0 3%
+  .tel a 
+    margin-left: 30px
+  .info 
+    width: 85%
+
+@media screen and (max-width: 900px)
+  .burger.flex-sb 
+    display: flex 
+
+  .active-header 
+    position: fixed
+    z-index: 3
+    top: 0
+    left: 0
+    width: 100%
+    box-shadow: 0 10px 10px 0 $primary
+    div,
+    a,
+    svg 
+      position: relative
+      z-index: 4
+    .menu 
+      position: fixed
+      z-index: 2
+      top: 0
+      left: 0
+      width: 100vw
+      height: 100vh
+      padding: 100px 3%
+      background-color: $primary
+      ul 
+        display: inline-block
+      a 
+        font-size: 2.4em
+        margin: 15px 0
+
+  .menu,
+  .soc 
+    // display: none
+
+@media screen and (max-width: 850px)
+  .wrapper 
+    width: 90%
+  .header-content 
+    padding: 100px 5%
+    flex-wrap: wrap
+  .info 
+    width: 100%
+  .soc
+    flex-direction: row 
+    width: 50%
+    margin: 20px auto
+    transform: translateX(0)
+

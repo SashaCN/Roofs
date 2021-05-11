@@ -1,9 +1,13 @@
 header 
-  .header-line
+  .header-line.active-header 
     .wrapper.flex-sb
       .logo-wrap
         a(href="#")
           img(src="img/logo.png", alt="Логотип компанії Dakan")
+      .burger.flex-sb
+        span
+        span
+        span
       nav.menu 
         ul.flex-sb 
           li
@@ -18,3 +22,26 @@ header
         a(href="tel:+380967679239") +380 96 767 92 39
         svg 
           use(xlink:href="img/sprite.svg#tel")
+  .header-content.flex-sb 
+    .info  
+      .info-wrap 
+        .border 
+        .text-wrap 
+          p Ми зробимо Вашу оселю затишною 
+          h1 Натяжні стелі м.Хмельницький
+    .soc.flex-sb
+      a(href="#")
+        svg.viber
+          use(xlink:href="img/sprite.svg#viber")
+      a(href="#")
+        svg.tg
+          use(xlink:href="img/sprite.svg#telegram")
+      a(href="#")
+        svg.fb
+          use(xlink:href="img/sprite.svg#facebook")
+      a(href="#")
+        svg.inst
+          use(xlink:href="img/sprite.svg#instagram")
+      a(href="#")
+        svg.tt
+          use(xlink:href="img/sprite.svg#tiktok")
