@@ -80,8 +80,12 @@ a
     width: 85%
 
 @media screen and (max-width: 900px)
+  .menu
+    display: none
+
   .burger.flex-sb 
     display: flex 
+    order: 3
 
   .active-header 
     position: fixed
@@ -89,13 +93,16 @@ a
     top: 0
     left: 0
     width: 100%
-    box-shadow: 0 10px 10px 0 $primary
+    border-bottom: 3px solid #0f3662
+    box-shadow: 0 10px 10px 0 #0f3662
     div,
     a,
-    svg 
       position: relative
       z-index: 4
+    svg 
+      z-index: 4
     .menu 
+      display: flex
       position: fixed
       z-index: 2
       top: 0
@@ -110,9 +117,8 @@ a
         font-size: 2.4em
         margin: 15px 0
 
-  .menu,
-  .soc 
-    // display: none
+  .tel 
+    max-width: 40%
 
 @media screen and (max-width: 850px)
   .wrapper 
@@ -124,7 +130,17 @@ a
     width: 100%
   .soc
     flex-direction: row 
-    width: 50%
+    width: 60%
     margin: 20px auto
     transform: translateX(0)
 
+@media screen and (max-width: 690px) 
+  .info 
+    padding: 60px 30px
+
+  h1 
+    font-size: 4rem
+    line-height: 5rem
+
+  .soc 
+    width: 80%
