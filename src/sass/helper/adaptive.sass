@@ -1,0 +1,188 @@
+@media screen and (max-width: 1700px)
+  .info
+    padding: 80px
+  
+  .about-us .img:after 
+    bottom: -5%
+
+@media screen and (max-width: 1600px)
+  h1 
+    font-size: 5.2rem
+    line-height: 6rem
+  h2 
+    font-size: 4.5em
+
+
+@media screen and (max-width: 1500px)
+  .header-content 
+    padding: 68px 50px
+  .soc 
+    transform: translateX(38px)
+
+  .about-us .img
+    &:before 
+      top: -8% 
+    &:after 
+      bottom: -8%
+
+@media screen and (max-width: 1400px)
+  .text-wrap 
+    margin: 7% 0 7% 7%
+  .border
+    &::before,
+    &::after
+      height: 20%
+    &::before 
+      top: -20%
+    &::after 
+      bottom: -20%
+
+  .about-us .img
+    &:before 
+      top: -20% 
+    &:after 
+      bottom: -15%
+
+@media screen and (max-width: 1300px)
+  .info 
+    padding: 80px 50px
+
+@media screen and (max-width: 1250px)
+  html 
+    font-size: 8px
+  .tel 
+    &::before,
+    svg 
+      width: 18px
+      height: 30px
+
+  .about-us .img
+    &:before 
+      width: 200px
+      height: 200px
+    &:after 
+      bottom: -20%
+      
+
+@media screen and (max-width: 1100px)
+  .info 
+    width: 75%
+
+@media screen and (max-width: 990px)
+  .menu 
+    padding: 0 3%
+  .tel a 
+    margin-left: 30px
+  .info 
+    width: 85%
+
+@media screen and (max-width: 900px)
+  .menu
+    display: none
+
+  .burger.flex-sb 
+    display: flex 
+    order: 3
+
+  .active-header 
+    position: fixed
+    z-index: 3
+    top: 0
+    left: 0
+    width: 100%
+    border-bottom: 3px solid #0f3662
+    box-shadow: 0 10px 10px 0 #0f3662
+    div,
+    a,
+      position: relative
+      z-index: 4
+    svg 
+      z-index: 4
+    .menu 
+      display: flex
+      position: fixed
+      z-index: 2
+      top: 0
+      left: 0
+      width: 100vw
+      height: 100vh
+      padding: 100px 3%
+      background-color: $primary
+      ul 
+        display: inline-block
+      a 
+        font-size: 2.4em
+        margin: 15px 0
+
+  .tel 
+    max-width: 40%
+
+@media screen and (max-width: 850px)
+  .wrapper 
+    width: 90%
+  .header-content 
+    padding: 100px 5%
+    flex-wrap: wrap
+  .info 
+    width: 100%
+  .soc
+    flex-direction: row 
+    width: 60%
+    margin: 20px auto
+    transform: translateX(0)
+
+  .about-us 
+    .flex-sb 
+      display: block
+      margin: -30px auto
+      & > div 
+        width: 100%
+        margin: 30px 0
+      .img 
+        padding: 0
+        &:before 
+          top: -5%
+          right: -3%
+
+@media screen and (max-width: 690px) 
+  .info 
+    padding: 60px 30px
+
+  h1 
+    font-size: 4rem
+    line-height: 5rem
+
+  .soc 
+    width: 80%
+
+  h2 
+    font-size: 3rem
+    margin-bottom: 25px 
+  
+  .about-us p 
+    font-size: 1.8rem
+
+@media screen and (max-width: 550px) 
+  .logo-wrap
+    width: 30%
+
+  .tel
+    display: none
+
+  .active-header
+    .tel 
+      display: block
+      position: fixed 
+      bottom: 10vh
+      right: 10vw
+      z-index: 3
+      max-width: 100%  
+
+@media screen and (max-width: 500px) 
+  .soc 
+    justify-content: center
+    flex-wrap: wrap
+    width: 100%
+    margin: 15px auto
+    a 
+      margin: 15px
