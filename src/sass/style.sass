@@ -28,7 +28,9 @@ a
   align-items: center
 
 section 
-  margin: 100px 0
+  padding: 100px 0
+
+//section about company
 
 .about-us
   position: relative
@@ -74,3 +76,42 @@ h2
   color: $primary
   border-bottom: 2px solid $second
   margin-bottom: 5px
+
+//section services 
+
+.services 
+  background-color: $dark-bg 
+  h2 
+    margin-bottom: 50px
+  svg 
+    fill: #fff 
+    margin-bottom: 20px
+    max-height: 81px 
+    height: 100%
+    transition: $trs
+  h4 
+    font: 1.8rem $inter
+    color: #fff
+    font-weight: 400
+    text-transform: uppercase
+    text-align: center
+    transition: $trs
+
+.services-line 
+  align-items: stretch
+  margin: 0 -1px
+
+.service 
+  display: flex 
+  flex-direction: column
+  align-items: center
+  width: calc( 20% - 2px )
+  padding: 30px 70px
+  box-sizing: border-box
+  background-color: $primary
+  margin: 1px
+  &:hover 
+    h4 
+      color: $second
+    svg 
+      fill: $second
