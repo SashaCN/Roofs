@@ -115,3 +115,49 @@ h2
       color: $second
     svg 
       fill: $second
+
+// section works exaples (slider)
+
+.examples
+  text-align: center
+  h2
+    margin-bottom: 50px
+
+.slider 
+  justify-content: center
+  padding: 50px
+  background-color: $dark-bg
+  margin-bottom: 50px
+
+.arr 
+  width: 65px
+  height: 65px
+  background-color: $second
+  border-radius: 5px
+  justify-content: center
+  transition: $trs
+  svg 
+    width: 26px
+    height: 49px
+    fill: #fff
+  &:hover 
+    transform: scale(1.1)
+
+.arr-right svg 
+  transform: rotate(180deg)
+
+.slider-line 
+  width: 40%
+  margin: 0 50px
+  border-radius: 5px
+  overflow: hidden
+  max-height: 70vh
+  scroll-behavior: smooth
+  img 
+    width: 100%
+    height: 100%
+    object-fit: cover
+    object-position: top center
+
+.slider-navigation 
+  background-color: $primary
