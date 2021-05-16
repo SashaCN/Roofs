@@ -67,9 +67,7 @@ navSlideWidth = navSlide[0].getBoundingClientRect().width
 
 function navScroll (){
   for(let i = 0;  i < navSlide.length; i++){
-    console.log(navSlide[i].getAttribute("data-picture-number"))
     if(navSlide[i].getAttribute("data-picture-number") == imgNumber){
-      console.log("+")
       sliderNav.scrollTo(navSlide[i].parentElement.offsetLeft - sliderNav.offsetLeft, 0)
     }
   }
@@ -81,7 +79,41 @@ for(let i = 0; i < navSlide.length; i++){
 
 function goToSlide (){
   imgNumber = this.firstChild.getAttribute("data-picture-number")
-  console.log(imgNumber)
   sliderLine.scrollTo(img[imgNumber].offsetLeft - sliderLine.offsetLeft, 0)
   sliderNav.scrollTo(navSlide[imgNumber].parentElement.offsetLeft - sliderNav.offsetLeft, 0)
 }
+
+// scroll animations
+
+let animLeft = document.querySelectorAll(".animation-left"),
+    animRight = document.querySelectorAll(".animation-right"),
+    animBottom = document.querySelectorAll(".animation-bottom"),
+    animFade = document.querySelectorAll(".animation-fade"),
+    startAnim = window.innerHeight - (window.innerHeight*15/100)
+
+    window.onwheel = checkScroll
+    window.onscroll = checkScroll
+    
+function checkScroll (){
+  animLeft.forEach((elem)=>{  
+    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
+      elem.classList.remove("animation-left")
+    }
+  })
+  animRight.forEach((elem)=>{  
+    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
+      elem.classList.remove("animation-right")
+    }
+  })
+  animBottom.forEach((elem)=>{  
+    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
+      elem.classList.remove("animation-bottom")
+    }
+  })
+  animFade.forEach((elem)=>{  
+    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
+      elem.classList.remove("animation-fade")
+    }
+  })
+}
+    

@@ -119,15 +119,52 @@ h2
 // section works exaples (slider)
 
 .examples
+  position: relative
   text-align: center
+  overflow: hidden
   h2
     margin-bottom: 50px
+  &::before,
+  &::after
+    content: ''
+    position: absolute 
+     z-index: -1
+  &::before 
+    top: 70%
+    left: 0%
+    width: 50px
+    height: 50px
+    background-color: #91d0ed
+  &::after
+    top: 10%
+    right: 0.5%
+    width: 62px
+    height: 62px
+    background-color: #879db6
 
 .slider 
+  position: relative
   justify-content: center
   padding: 50px
   background-color: $dark-bg
   margin-bottom: 50px
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+     z-index: -1 
+  &::before 
+    top: 20%
+    left: -30%
+    width: 26%
+    height: 50%
+    background-color: #c8e7f6
+  &::after
+    top: 40%
+    right: -25%
+    width: 20%
+    height: 45%
+    background-color: #c8e7f6
 
 .arr 
   width: 65px
@@ -163,9 +200,26 @@ h2
     object-position: top center
 
 .slider-navigation 
+  position: relative
   padding: 30px
   border-radius: 5px
   background-color: $primary
+  &::before,
+  &::after
+    content: ''
+    position: absolute 
+    z-index: -1
+    width: 80px
+    height: 80px
+  &::before 
+    top: -85%
+    left: -7%
+    background-color: #879db6
+  &::after
+    top: -290%
+    right: -6%
+    background-color: #91d0ed
+  
 
 .navigation-line 
   justify-content: start
@@ -179,3 +233,21 @@ h2
     width: 60%
     object-fit: fill
     border-radius: 5px
+
+
+//animations 
+
+.animation-fade
+  opacity: 0
+
+.animation-left
+  transform: translateX(-300%)
+
+.animation-right 
+  transform: translateX(300%)
+
+.animation-bottom 
+  transform: translateY(150%)
+
+.anim 
+  transition: $trs

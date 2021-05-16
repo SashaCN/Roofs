@@ -14,18 +14,18 @@ html(lang="uk")
 		main 	
 			section.about-us
 				.wrapper
-					h2 про компанію dakan 
+					h2.anim.animation-fade про компанію dakan 
 					.flex-sb
-						.description 
+						.description.anim.animation-left 
 							p Компанія “Dakan” – це багаторічний досвід, надійність та висока якість. Ви можете покластися на нас у виборі матеріалів для монтажу натяжних стель.
 							p До того ж компанія пропонує максимально вигідні для середньостатистичного клієнта ціни. Співпрацюючи з нами, ви можете переконатися, що ідеальна стеля — це не розкіш, а доступний всім комфорт від “Dakan”.
 							p Наша компанія надає усім нашим клієнтам гарантію на стелі, а також з індивідуальним підходом береться за будь-який дизайн.
-						.img
+						.img.anim.animation-right
 							img(src="img/about.jpg", alt="Приклад квартири з натяжною стелею від компанії “Dakan”")
 			section.services 
 				.wrapper 
-					h2 Люди високо цінують головні переваги, до яких відноситься наступне:
-					.services-line.flex-sb 
+					h2.anim.animation-fade Люди високо цінують головні переваги, до яких відноситься наступне:
+					.services-line.flex-sb.anim.animation-fade 
 						.service
 							svg
 								use(xlink:href="img/sprite.svg#guarantee")
@@ -48,12 +48,12 @@ html(lang="uk")
 							h4 висока якість товару і робіт
 			section.examples 
 				.wrapper 
-					h2 Наші роботи 
+					h2.anim.animation-fade Наші роботи 
 					.slider.flex-sb
-						.arr.arr-left.flex-sb 
+						.arr.arr-left.flex-sb.anim.animation-left
 							svg 
 								use(xlink:href="img/sprite.svg#arrow")
-						.slider-line.flex-sb
+						.slider-line.flex-sb.anim.animation-fade
 							div
 								img(src="img/gallery1.jpg", alt="Приклад квартири з натяжною стелею від компанії “Dakan”")
 							div
@@ -74,10 +74,10 @@ html(lang="uk")
 								img(src="img/gallery9.jpg", alt="Приклад квартири з натяжною стелею від компанії “Dakan”")
 							div
 								img(src="img/gallery10.jpg", alt="Приклад квартири з натяжною стелею від компанії “Dakan”")
-						.arr.arr-right.flex-sb
+						.arr.arr-right.flex-sb.anim.animation-right
 							svg 
 								use(xlink:href="img/sprite.svg#arrow")
-					.slider-navigation 
+					.slider-navigation.anim.animation-bottom 
 						.navigation-line.flex-sb 
 							
 		include components/footer
