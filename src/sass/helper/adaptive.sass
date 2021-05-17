@@ -1,19 +1,25 @@
 @media screen and (max-width: 1700px)
+  .logo-wrap svg 
+    max-height: 80px
+
   .info
     padding: 80px
   
   .about-us .img:after 
     bottom: -5%
 
-  .service  
+  .preference  
     padding: 30px 50px
+ 
+  h3 
+    font-size: 2.8rem
 
 @media screen and (max-width: 1600px)
   h1 
     font-size: 5.2rem
     line-height: 6rem
   h2 
-    font-size: 4.5em
+    font-size: 4.5rem
 
 
 @media screen and (max-width: 1500px)
@@ -28,8 +34,11 @@
     &:after 
       bottom: -8%
 
-  .service  
+  .preference  
     padding: 30px 40px
+
+  h3 
+    font-size: 2.4rem
 
 @media screen and (max-width: 1400px)
   .text-wrap 
@@ -53,7 +62,7 @@
   .info 
     padding: 80px 50px
 
-  .service  
+  .preference  
     padding: 30px
 
 @media screen and (max-width: 1250px)
@@ -72,14 +81,21 @@
     &:after 
       bottom: -20%
 
-  .service  
+  .preference  
     padding: 30px 20px      
+
+  .service-description 
+    p 
+      height: 85px
+  
+  .service 
+    width: 24%
 
 @media screen and (max-width: 1100px)
   .info 
     width: 75%
 
-  .service  
+  .preference  
     padding: 30px 10px
 
 @media screen and (max-width: 990px)
@@ -90,11 +106,11 @@
   .info 
     width: 85%
 
-  .services-line 
+  .preferences-line 
     flex-wrap: wrap
     justify-content: center
 
-  .service 
+  .preference 
     width: calc( 30% - 2px )
     padding: 30px
     
@@ -103,6 +119,19 @@
 
   .navigation-line div 
     min-width: 33.33%
+
+  .services-line 
+    flex-wrap: wrap
+    margin-bottom: 25px 
+
+  .service 
+    width: 48%
+    margin-bottom: 30px
+    img 
+      max-height: 70vh
+      
+  footer .tel svg
+    left: -25px
 
 @media screen and (max-width: 900px)
   .menu
@@ -145,7 +174,16 @@
   .tel 
     max-width: 40%
 
+  .soc-wrap 
+    width: 30%
+
+  footer .tel svg
+    left: -40px
+
 @media screen and (max-width: 850px)
+  .logo-wrap 
+    width: 30% 
+
   .wrapper 
     width: 90%
   .header-content 
@@ -175,7 +213,7 @@
           bottom: -10%
           right: -1%
 
-  .service 
+  .preference 
     width: calc( 30% - 2px )
     padding: 20px 30px
     svg 
@@ -196,8 +234,12 @@
   h2 
     font-size: 3rem
     margin-bottom: 25px 
+
+  h3 
+    font-size: 2.2rem
   
-  .about-us p 
+  .about-us p,
+  .company-description 
     font-size: 1.8rem
 
   .slider 
@@ -213,12 +255,19 @@
     margin: 20px
     margin-bottom: 0
 
+  .services-line 
+    margin-bottom: 15px
+
+  .soc-wrap 
+    width: 40%
+
 @media screen and (max-width: 550px) 
   .logo-wrap
-    width: 30%
+    width: 40%
 
-  .tel
-    display: none
+  header
+    .tel
+      display: none
 
   .active-header
     .tel 
@@ -238,7 +287,7 @@
   .text-wrap 
     margin: 0
 
-  .service 
+  .preference 
     width: calc( 50% - 2px )
     padding: 30px
     svg 
@@ -248,6 +297,10 @@
     padding: 20px
     img 
       width: 80%
+
+  .service 
+    img 
+      max-height: 60vh
 
 @media screen and (max-width: 500px) 
   .soc 
@@ -266,6 +319,9 @@
 
   
 @media screen and (max-width: 450px) 
+  .logo-wrap 
+    width: 50%
+
   .active-header .menu a 
     font-size: 2rem 
     margin: 10px 0
@@ -282,7 +338,24 @@
   h2
     font-size: 2.6rem
 
-  
+  .service 
+    width: 100%
+    img 
+      max-height: 80vh
+
+  .footer-line 
+    flex-wrap: wrap
+    margin: 0 
+
+  .soc-wrap
+    width: 100%
+    text-align: center
+    margin-bottom: 20px
+
+  footer .tel 
+    max-width: 60%
+    margin: 0 auto
+
 @media screen and (max-width: 350px) 
   h1 
     font-size: 2.8rem
