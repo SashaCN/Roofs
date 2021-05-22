@@ -12,13 +12,13 @@ header
       nav.menu 
         ul.flex-sb 
           li
-            a(href="#") про нас
+            a#about-us(href="#") про нас
           li
-            a(href="#") послуги
+            a#services(href="#") послуги
           li
-            a(href="#") Наші роботи
+            a#examples(href="#") Наші роботи
           li
-            a(href="#") контакти 
+            a#contacts(href="#") контакти 
       p.tel 
         a(href="tel:+380967679239") +380 96 767 92 39
         svg 
@@ -31,18 +31,29 @@ header
           p Ми зробимо Вашу оселю затишною 
           h1 Натяжні стелі м.Хмельницький
     .soc.flex-sb
-      a(href="#")
-        svg.viber
-          use(xlink:href="img/sprite.svg#viber")
-      a(href="#")
-        svg.tg
-          use(xlink:href="img/sprite.svg#telegram")
-      a(href="#")
-        svg.fb
-          use(xlink:href="img/sprite.svg#facebook")
-      a(href="#")
-        svg.inst
-          use(xlink:href="img/sprite.svg#instagram")
-      a(href="#")
-        svg.tt
-          use(xlink:href="img/sprite.svg#tiktok")
+      p
+        a(href="viber://chat?number=%2B380967679239")
+          svg.viber
+            use(xlink:href="img/sprite.svg#viber")
+      p
+        a(href="tg://resolve?domain=+380967679239")
+          svg.tg
+            use(xlink:href="img/sprite.svg#telegram")
+      p
+        a(href="https://www.facebook.com/profile.php?id=100033545600016")
+          svg.fb
+            use(xlink:href="img/sprite.svg#facebook")
+      p
+        a(href="#")
+          svg.inst
+            use(xlink:href="img/sprite.svg#instagram")
+      p
+        a(href="https://www.tiktok.com/@dakan.com.ua?_d=secCgYIASAHKAESMgowFTqk%2F0f0XKkZQRFvHgsjYeGQrHl7goDNbDIHkUukekpOSffTQWeEdGnRnIlvli6UGgA%3D&_r=1&language=uk&sec_uid=MS4wLjABAAAAmMALC1WcxnqBtoi9SmWYfNoYMBEoaIoTWB61JnjEfmZtPLHW5mNjBiKPsVzQn1aI&sec_user_id=MS4wLjABAAAAmMALC1WcxnqBtoi9SmWYfNoYMBEoaIoTWB61JnjEfmZtPLHW5mNjBiKPsVzQn1aI&share_author_id=6805897555113673734&share_link_id=7AE62E07-C5A8-4EFE-853D-401C8D493212&source=h5_m&tt_from=viber&u_code=dbcmab27831i15&user_id=6805897555113673734&utm_campaign=client_share&utm_medium=ios&utm_source=viber")
+          svg.tt
+            use(xlink:href="img/sprite.svg#tiktok")
+      p.phone-soc
+        a(href="tel:+380967679239")
+          svg.call 
+            use(xlink:href="img/sprite.svg#call")
+        a.phone-number(href="tel:+380967679239") +380 96 767 92 39
+        

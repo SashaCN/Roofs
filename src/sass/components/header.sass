@@ -1,7 +1,12 @@
 // header menu line
 
 .header-line
+  position: fixed
+  left: 0
+  top: 0
+  width: 100vw  
   padding: 10px 0
+  z-index: 2
   background-color: $primary
   a 
     font-family: $inter
@@ -164,10 +169,15 @@ h1
   color: $primary
   text-transform: uppercase
 
-.soc 
+.soc.flex-sb 
+  position: fixed 
+  top: 50%
+  right: 10px
+  z-index: 3
   flex-direction: column
-  transform: translateX(88px)
-  a 
+  transform: translateY(-35%)
+  align-items: flex-end
+  & > p 
     display: flex
     justify-content: center
     align-items: center
@@ -182,6 +192,8 @@ h1
       transform: scale(1.1)
       svg 
         fill: $second
+      a 
+        color: $second
   svg 
     display: block
     fill: #fff
@@ -201,3 +213,19 @@ h1
   .tt 
     width: 34px
     height: 40px
+  .call 
+    width: 45px
+    height: 45px
+  .active-phone 
+    width: unset
+    padding: 0 10px
+
+.phone-number 
+  display: none
+
+.active-phone a.phone-number
+  display: inline-block
+  font: 1.8rem $inter
+  color: #fff
+  transition: $trs
+

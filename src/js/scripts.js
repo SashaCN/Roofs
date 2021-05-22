@@ -1,3 +1,5 @@
+document.querySelector("header").style.paddingTop = `${document.querySelector(".header-line").getBoundingClientRect().height}px`
+
 // burger menu 
 let header = document.querySelector(".header-line"),
     burger = document.querySelector(".burger")
@@ -8,6 +10,37 @@ function menuToggle (event){
   event.preventDefault()
   header.classList.toggle("active-header")
   burger.classList.toggle("active-burger")
+}
+
+//phone on soc line toggle 
+
+let phone = document.querySelector(".phone-soc"),
+    phoneSvg = document.querySelector(".phone-soc > a")
+
+phoneSvg.onclick = checkPhone
+
+function checkPhone (e){
+  if(!phoneSvg.closest(".phone-soc").classList.contains("active-phone")){
+    e.preventDefault()
+  }
+}
+
+phone.onclick = phoneClick
+
+function phoneClick (e){
+  if(phone.classList.contains("active-phone") && e.target != this){
+  }else{
+    phone.classList.toggle("active-phone")
+  }
+  phoneClose(event)
+}
+
+function phoneClose (event){
+  if(!event.target.closest(".phone-soc")){
+    phone.classList.remove("active-phone")
+  }
+        
+    
 }
 
 // gallery slider 
@@ -116,4 +149,45 @@ function checkScroll (){
     }
   })
 }
-    
+
+//header scroll to 
+
+let sectionAbout = document.querySelector(".about-us"),
+    sectionServices = document.querySelector(".services"),
+    buttonAbout = document.querySelector("#about-us"),
+    offset = window.pageYOffset + 100
+
+document.querySelector("#about-us").onclick = aboutScroll
+document.querySelector("#services").onclick = servicesScroll
+
+function scrollDown (section){
+  console.log(section)
+  if(offset > section.offsetTop){
+    offset = offset - 20
+  }else{
+    offset = offset + 20
+  }
+  window.scrollTo(0, offset)
+  if(offset < section.offsetTop){
+    setTimeout(() => {
+      scrollDown ()
+    }, 1);
+  }
+}
+
+function aboutScroll(e){
+  e.preventDefault()
+  scrollDown(sectionAbout)
+}
+function servicesScroll(e){
+  e.preventDefault()
+  scrollDown(sectionServices)
+}
+function aboutScroll(e){
+  e.preventDefault()
+  scrollDown(sectionAbout)
+}
+function aboutScroll(e){
+  e.preventDefault()
+  scrollDown(sectionAbout)
+}
