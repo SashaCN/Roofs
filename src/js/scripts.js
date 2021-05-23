@@ -35,12 +35,12 @@ function phoneClick (e){
   phoneClose(event)
 }
 
+document.body.onclick = phoneClose
+
 function phoneClose (event){
-  if(!event.target.closest(".phone-soc")){
+  if(event.target != phone && !phone.contains(event.target)){
     phone.classList.remove("active-phone")
   }
-        
-    
 }
 
 // gallery slider 
@@ -154,23 +154,25 @@ function checkScroll (){
 
 let sectionAbout = document.querySelector(".about-us"),
     sectionServices = document.querySelector(".services"),
-    buttonAbout = document.querySelector("#about-us"),
-    offset = window.pageYOffset + 100
-
+    sectionWorks = document.querySelector(".examples"),
+    sectionContacts = document.querySelector("footer"),
+    offset = window.pageYOffset
+    
 document.querySelector("#about-us").onclick = aboutScroll
 document.querySelector("#services").onclick = servicesScroll
+document.querySelector("#examples").onclick = examplesScroll
+document.querySelector("#contacts").onclick = contactsScroll
 
 function scrollDown (section){
-  console.log(section)
-  if(offset > section.offsetTop){
+  if(offset > section.offsetTop - 40){
     offset = offset - 20
   }else{
     offset = offset + 20
   }
   window.scrollTo(0, offset)
-  if(offset < section.offsetTop){
+  if(offset < section.offsetTop - 60 || offset > section.offsetTop - 20){
     setTimeout(() => {
-      scrollDown ()
+      scrollDown (section)
     }, 1);
   }
 }
@@ -183,11 +185,11 @@ function servicesScroll(e){
   e.preventDefault()
   scrollDown(sectionServices)
 }
-function aboutScroll(e){
+function examplesScroll(e){
   e.preventDefault()
-  scrollDown(sectionAbout)
+  scrollDown(sectionWorks)
 }
-function aboutScroll(e){
+function contactsScroll(e){
   e.preventDefault()
-  scrollDown(sectionAbout)
+  scrollDown(sectionContacts)
 }
