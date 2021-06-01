@@ -47,73 +47,107 @@ function phoneClose (event){
 let left = document.querySelector(".arr-left"),
     right = document.querySelector(".arr-right"),
     sliderLine = document.querySelector(".slider-line"),
-    img = document.querySelectorAll(".slider-line img"),
+    img = document.querySelectorAll(".slider-line div"),
+    imgArr = [],
     imgNumber = 0,
     sliderNav = document.querySelector(".navigation-line"),
-    navContent = " "
+    navContent = " ",
+    deletedImg,
+    deletedNavImg
 
 left.onclick = slideLeft 
 right.onclick = slideRight 
 
-function slideLeft (event){
-  let sliderLine = document.querySelector(".slider-line"),
-      img = document.querySelectorAll(".slider-line img"),
-      slideWidth = img[1].getBoundingClientRect().width
-  event.preventDefault() 
-  if(sliderLine.scrollLeft != 0){
-    sliderLine.scrollLeft = sliderLine.scrollLeft - slideWidth
-    imgNumber = imgNumber - 1
-  }else{
-    sliderLine.scrollLeft = sliderLine.scrollWidth - slideWidth
-    imgNumber = img.length - 1
-  }
-  navScroll()
-}
-function slideRight (event){
-  let sliderLine = document.querySelector(".slider-line"),
-      img = document.querySelectorAll(".slider-line img"),
-      slideWidth = img[1].getBoundingClientRect().width
-  event.preventDefault() 
-  if(sliderLine.scrollLeft + slideWidth >= sliderLine.scrollWidth - 10 && sliderLine.scrollLeft + slideWidth <= sliderLine.scrollWidth + 10){
-    sliderLine.scrollLeft = 0
-    imgNumber = 0
-  }else{
-    sliderLine.scrollLeft = sliderLine.scrollLeft + slideWidth
-    imgNumber = imgNumber + 1
-  }
-  navScroll()
-}
-
 for(let i = 0; i < img.length; i++){
   img[i].setAttribute("data-picture-number", i)
   if(sliderNav.innerHTML == " "){
-    sliderNav.innerHTML = `<div>${img[i].outerHTML}</div>`
+    sliderNav.innerHTML = `${img[i].outerHTML}`
     navContent = sliderNav.innerHTML
   }else{
-    sliderNav.innerHTML = `${navContent}<div>${img[i].outerHTML}</div>`
+    sliderNav.innerHTML = `${navContent}${img[i].outerHTML}`
     navContent = sliderNav.innerHTML
   }
 }
 
-let navSlide = document.querySelectorAll(".navigation-line img"),
-navSlideWidth = navSlide[0].getBoundingClientRect().width
 
-function navScroll (){
-  for(let i = 0;  i < navSlide.length; i++){
-    if(navSlide[i].getAttribute("data-picture-number") == imgNumber){
-      sliderNav.scrollTo(navSlide[i].parentElement.offsetLeft - sliderNav.offsetLeft, 0)
-    }
+let navSlide = document.querySelectorAll(".navigation-line div"),
+navSlideWidth = navSlide[0].getBoundingClientRect().width
+    
+if(document.body.offsetWidth > 990){
+  navSlide[2].classList.add("active-slide")  
+  for(let i = 0; i < img.length; i++){
+    img[i].style.transform = `translateX(-${img[1].getBoundingClientRect().width * 2}px)`
   }
+}else{
+  navSlide[1].classList.add("active-slide")  
+  for(let i = 0; i < img.length; i++){
+    img[i].style.transform = `translateX(-${img[1].getBoundingClientRect().width}px)` 
+  }
+}
+
+function slideLeft (event){
+  let img = document.querySelectorAll(".slider-line div"),
+      navSlide = document.querySelectorAll(".navigation-line div")
+  event.preventDefault()
+  deletedImg = img[img.length - 1]
+  sliderLine.removeChild(img[img.length - 1])
+  sliderLine.insertBefore(deletedImg, sliderLine.firstElementChild)
+  deletedNavImg = navSlide[navSlide.length - 1]
+  sliderNav.removeChild(navSlide[navSlide.length - 1])
+  sliderNav.insertBefore(deletedNavImg, sliderNav.firstElementChild)
+}
+
+function slideRight (event){
+  let img = document.querySelectorAll(".slider-line div"),
+      navSlide = document.querySelectorAll(".navigation-line div")
+  event.preventDefault()
+  deletedImg = img[0]
+  sliderLine.removeChild(img[0])
+  sliderLine.appendChild(deletedImg)
+  deletedNavImg = navSlide[0]
+  sliderNav.removeChild(navSlide[0])
+  sliderNav.appendChild(deletedNavImg)
 }
 
 for(let i = 0; i < navSlide.length; i++){
-  navSlide[i].parentElement.onclick = goToSlide
+  navSlide[i].onclick = goToSlide
 }
 
 function goToSlide (){
-  imgNumber = this.firstChild.getAttribute("data-picture-number")
-  sliderLine.scrollTo(img[imgNumber].offsetLeft - sliderLine.offsetLeft, 0)
-  sliderNav.scrollTo(navSlide[imgNumber].parentElement.offsetLeft - sliderNav.offsetLeft, 0)
+  let activeSlide = document.querySelector(`.navigation-line .active-slide`),
+      img = document.querySelectorAll(".slider-line div"),
+      navSlide = document.querySelectorAll(".navigation-line div")
+  activeSlide.classList.remove("active-slide")  
+  this.classList.add("active-slide") 
+  for(let a = 0; a < navSlide.length; a++){
+    img[a].setAttribute("data-picture-number", a)
+    navSlide[a].setAttribute("data-picture-number", a)
+  }  
+  if(this.getAttribute("data-picture-number") > activeSlide.getAttribute("data-picture-number")){
+    for(let c = 2; c < this.getAttribute("data-picture-number"); c++){
+      let img = document.querySelectorAll(".slider-line div"),
+          navSlide = document.querySelectorAll(".navigation-line div")
+      deletedImg = img[0]
+      sliderLine.removeChild(img[0])
+      sliderLine.appendChild(deletedImg)
+      deletedNavImg = navSlide[0]
+      sliderNav.removeChild(navSlide[0])
+      sliderNav.appendChild(deletedNavImg)
+    }
+  }else if(this.getAttribute("data-picture-number") < activeSlide.getAttribute("data-picture-number")){
+    for(let c = 2; c > this.getAttribute("data-picture-number"); c--){
+      let img = document.querySelectorAll(".slider-line div"),
+          navSlide = document.querySelectorAll(".navigation-line div")
+      deletedImg = img[img.length - 1]
+      sliderLine.removeChild(img[img.length - 1])
+      sliderLine.insertBefore(deletedImg, sliderLine.firstElementChild)
+      deletedNavImg = navSlide[navSlide.length - 1]
+      sliderNav.removeChild(navSlide[navSlide.length - 1])
+      sliderNav.insertBefore(deletedNavImg, sliderNav.firstElementChild)
+    }
+  }else{
+    return false
+  }
 }
 
 // scroll animations
@@ -173,7 +207,7 @@ function scrollDown (section){
   if(offset < section.offsetTop - 60 || offset > section.offsetTop - 20){
     setTimeout(() => {
       scrollDown (section)
-    }, 0.3);
+    }, 0.3)
   }
 }
 
@@ -197,63 +231,63 @@ function contactsScroll(e){
 // titles lats line underline
 
 (() => {
-  const elements = document.querySelectorAll('.last-line');
-  const nameElement = 'last-line-element';
-  const nameRow = 'last-line-row';
+  const elements = document.querySelectorAll('.last-line')
+  const nameElement = 'last-line-element'
+  const nameRow = 'last-line-row'
 
   const wrapAll = (nodes, wrapper, elem) => {
-    const parent = nodes[0].parentNode;
-    const { previousSibling } = nodes[0];
+    const parent = nodes[0].parentNode
+    const { previousSibling } = nodes[0]
     for (let i = 0; nodes.length - i; wrapper.firstChild === nodes[0] && (i += 1)) {
-      wrapper.appendChild(nodes[i]);
+      wrapper.appendChild(nodes[i])
     }
     if (previousSibling) {
-      parent.insertBefore(wrapper, previousSibling.nextSibling);
+      parent.insertBefore(wrapper, previousSibling.nextSibling)
     } else {
-      elem.appendChild(wrapper);
+      elem.appendChild(wrapper)
     }
-    return wrapper;
-  };
+    return wrapper
+  }
 
   const findLastRow = (elem) => {
-    const content = elem.innerText.trim();
-    const contentArr = content.split(' ');
-    let contentFormatted = '';
+    const content = elem.innerText.trim()
+    const contentArr = content.split(' ')
+    let contentFormatted = ''
     contentArr.forEach((item) => {
-      contentFormatted += `<span>${item} </span>`;
-    });
-    const element = elem;
-    element.innerHTML = contentFormatted;
+      contentFormatted += `<span>${item} </span>`
+    })
+    const element = elem
+    element.innerHTML = contentFormatted
 
-    const childrenSpan = Array.from(elem.getElementsByTagName('span'));
-    let top = 0;
+    const childrenSpan = Array.from(elem.getElementsByTagName('span'))
+    let top = 0
     childrenSpan.forEach((item) => {
-      const thisTop = item.offsetTop;
+      const thisTop = item.offsetTop
       if (thisTop === top) {
-        item.classList.add(nameElement);
+        item.classList.add(nameElement)
       } else {
         childrenSpan.forEach((el) => {
-          el.classList.remove(nameElement);
-        });
-        top = thisTop;
-        item.classList.add(nameElement);
+          el.classList.remove(nameElement)
+        })
+        top = thisTop
+        item.classList.add(nameElement)
       }
-    });
+    })
 
-    const wrapElements = element.querySelectorAll(`.${nameElement}`);
-    const wrapper = document.createElement('span');
-    wrapper.classList.add(nameRow);
-    wrapAll(wrapElements, wrapper, elem);
-  };
+    const wrapElements = element.querySelectorAll(`.${nameElement}`)
+    const wrapper = document.createElement('span')
+    wrapper.classList.add(nameRow)
+    wrapAll(wrapElements, wrapper, elem)
+  }
 
   const findLastRows = () => {
     elements.forEach((elem) => {
-      findLastRow(elem);
-    });
-  };
+      findLastRow(elem)
+    })
+  }
 
   window.addEventListener('resize', () => {
-    findLastRows();
-  });
-  findLastRows();
-})();
+    findLastRows()
+  })
+  findLastRows()
+})()
