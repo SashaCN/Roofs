@@ -110,21 +110,30 @@ function slideRight (event){
 }
 
 for(let i = 0; i < navSlide.length; i++){
-  navSlide[i].onclick = goToSlide
+  navSlide[i].onclick = widthCheck
 }
 
-function goToSlide (){
+function widthCheck (){
+  if(document.body.offsetWidth > 990){
+    goToSlide(event, 2)
+  }else{
+    goToSlide(event, 1)
+  }
+}
+
+function goToSlide (event, middleSlide){
+  console.log(middleSlide)
   let activeSlide = document.querySelector(`.navigation-line .active-slide`),
       img = document.querySelectorAll(".slider-line div"),
       navSlide = document.querySelectorAll(".navigation-line div")
   activeSlide.classList.remove("active-slide")  
-  this.classList.add("active-slide") 
+  event.target.closest("div").classList.add("active-slide") 
   for(let a = 0; a < navSlide.length; a++){
     img[a].setAttribute("data-picture-number", a)
     navSlide[a].setAttribute("data-picture-number", a)
   }  
-  if(this.getAttribute("data-picture-number") > activeSlide.getAttribute("data-picture-number")){
-    for(let c = 2; c < this.getAttribute("data-picture-number"); c++){
+  if(event.target.closest("div").getAttribute("data-picture-number") > activeSlide.getAttribute("data-picture-number")){
+    for(let c = middleSlide; c < event.target.closest("div").getAttribute("data-picture-number"); c++){
       let img = document.querySelectorAll(".slider-line div"),
           navSlide = document.querySelectorAll(".navigation-line div")
       deletedImg = img[0]
@@ -134,8 +143,8 @@ function goToSlide (){
       sliderNav.removeChild(navSlide[0])
       sliderNav.appendChild(deletedNavImg)
     }
-  }else if(this.getAttribute("data-picture-number") < activeSlide.getAttribute("data-picture-number")){
-    for(let c = 2; c > this.getAttribute("data-picture-number"); c--){
+  }else if(event.target.closest("div").getAttribute("data-picture-number") < activeSlide.getAttribute("data-picture-number")){
+    for(let c = middleSlide; c > event.target.closest("div").getAttribute("data-picture-number"); c--){
       let img = document.querySelectorAll(".slider-line div"),
           navSlide = document.querySelectorAll(".navigation-line div")
       deletedImg = img[img.length - 1]
@@ -192,10 +201,22 @@ let sectionAbout = document.querySelector(".about-us"),
     sectionContacts = document.querySelector("footer"),
     offset = window.pageYOffset
     
-document.querySelector("#about-us").onclick = aboutScroll
-document.querySelector("#services").onclick = servicesScroll
-document.querySelector("#examples").onclick = examplesScroll
-document.querySelector("#contacts").onclick = contactsScroll
+document.querySelectorAll("#about-us").forEach((e)=>{
+  e.onclick = aboutScroll
+
+})
+document.querySelectorAll("#services").forEach((e)=>{
+  e.onclick = servicesScroll
+
+})
+document.querySelectorAll("#examples").forEach((e)=>{
+  e.onclick = examplesScroll
+
+})
+document.querySelectorAll("#contacts").forEach((e)=>{
+  e.onclick = contactsScroll
+
+})
 
 function scrollDown (section){
   if(offset > section.offsetTop - 40){
