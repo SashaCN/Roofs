@@ -161,36 +161,34 @@ function goToSlide (event, middleSlide){
 
 // scroll animations
 
-let animLeft = document.querySelectorAll(".animation-left"),
-    animRight = document.querySelectorAll(".animation-right"),
-    animBottom = document.querySelectorAll(".animation-bottom"),
-    animFade = document.querySelectorAll(".animation-fade"),
-    startAnim = window.innerHeight - (window.innerHeight*15/100)
+let animParent = document.querySelectorAll(".anim-parent"),
+    startAnim = window.innerHeight - (window.innerHeight/2)
 
-    window.onwheel = checkScroll
-    window.onscroll = checkScroll
+window.onwheel = checkScroll
+window.onscroll = checkScroll
     
 function checkScroll (){
-  animLeft.forEach((elem)=>{  
-    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
-      elem.classList.remove("animation-left")
+  console.log(startAnim)
+  animParent.forEach((e) => {
+    if(window.pageYOffset + startAnim >= e.offsetTop){
+      let animLeft = e.querySelectorAll(".animation-left"),
+          animRight = e.querySelectorAll(".animation-right"),
+          animBottom = e.querySelectorAll(".animation-bottom"),
+          animFade = e.querySelectorAll(".animation-fade")
+      animLeft.forEach((elem)=>{
+        elem.classList.remove("animation-left")  
+      })
+      animRight.forEach((elem)=>{
+        elem.classList.remove("animation-right")  
+      })
+      animBottom.forEach((elem)=>{
+        elem.classList.remove("animation-bottom")  
+      })
+      animFade.forEach((elem)=>{
+        elem.classList.remove("animation-fade")  
+      })
     }
-  })
-  animRight.forEach((elem)=>{  
-    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
-      elem.classList.remove("animation-right")
-    }
-  })
-  animBottom.forEach((elem)=>{  
-    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
-      elem.classList.remove("animation-bottom")
-    }
-  })
-  animFade.forEach((elem)=>{  
-    if(window.pageYOffset + startAnim >= elem.offsetTop && window.pageYOffset <= elem.offsetTop){
-      elem.classList.remove("animation-fade")
-    }
-  })
+  })  
 }
 
 //header scroll to 
@@ -219,6 +217,8 @@ document.querySelectorAll("#contacts").forEach((e)=>{
 })
 
 function scrollDown (section){
+  header.classList.remove("active-header")
+  burger.classList.remove("active-burger")
   if(offset > section.offsetTop - 40){
     offset = offset - 20
   }else{
