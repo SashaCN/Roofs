@@ -162,7 +162,7 @@ function goToSlide (event, middleSlide){
 // scroll animations
 
 let animParent = document.querySelectorAll(".anim-parent"),
-    startAnim = window.innerHeight - (window.innerHeight/2)
+    startAnim = window.innerHeight/2
 
 window.onwheel = checkScroll
 window.onscroll = checkScroll
