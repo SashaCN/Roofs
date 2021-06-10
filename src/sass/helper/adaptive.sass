@@ -1,0 +1,376 @@
+@media screen and (max-width: 1700px)
+  .logo-wrap svg 
+    max-height: 80px
+
+  .info
+    padding: 80px
+  
+  .about-us .img:after 
+    bottom: -5%
+
+  .preference  
+    padding: 30px 50px
+ 
+  h3 
+    font-size: 2.8rem
+
+@media screen and (max-width: 1600px)
+  h1 
+    font-size: 5.2rem
+    line-height: 6rem
+  h2 
+    font-size: 4.5rem
+
+
+@media screen and (max-width: 1500px)
+  .header-content 
+    padding: 68px 50px
+
+  .about-us .img
+    &:before 
+      top: -8% 
+    &:after 
+      bottom: -8%
+
+  .preference  
+    padding: 30px 40px
+
+  h3 
+    font-size: 2.4rem
+
+@media screen and (max-width: 1400px)
+  .text-wrap 
+    margin: 7% 0 7% 7%
+  .border
+    &::before,
+    &::after
+      height: 20%
+    &::before 
+      top: -20%
+    &::after 
+      bottom: -20%
+
+  .about-us .img
+    &:before 
+      top: -20% 
+    &:after 
+      bottom: -15%
+
+@media screen and (max-width: 1300px)
+  .info 
+    padding: 80px 50px
+
+  .preference  
+    padding: 30px
+
+@media screen and (max-width: 1250px)
+  html 
+    font-size: 8px
+  .tel 
+    &::before,
+    svg 
+      width: 18px
+      height: 30px
+
+  .about-us .img
+    &:before 
+      width: 200px
+      height: 200px
+    &:after 
+      bottom: -20%
+
+  .preference  
+    padding: 30px 20px      
+
+  .service-description 
+    p 
+      height: 85px
+  
+  .service 
+    width: 24%
+
+@media screen and (max-width: 1100px)
+  .info 
+    width: 75%
+
+  .preference  
+    padding: 30px 10px
+
+@media screen and (max-width: 990px)
+  .menu 
+    padding: 0 3%
+  .tel 
+    max-width: 45%
+    a 
+      margin-left: 30px
+  .info 
+    width: 85%
+
+  .soc.flex-sb 
+    transform: translateY(-40%)
+
+  .preferences-line 
+    flex-wrap: wrap
+    justify-content: center
+
+  .preference 
+    width: calc( 30% - 2px )
+    padding: 30px
+    
+  .slider-line 
+    width: 60%
+
+  .navigation-line div 
+    min-width: 33.33%
+
+  .services-line 
+    flex-wrap: wrap
+    margin-bottom: 25px 
+
+  .service 
+    width: 48%
+    margin-bottom: 30px
+    img 
+      max-height: 70vh
+      
+  footer .tel svg
+    left: -25px
+
+@media screen and (max-width: 900px)
+  .menu
+    display: none
+
+  .burger.flex-sb 
+    display: flex 
+    order: 3
+
+  .active-header 
+    position: fixed
+    z-index: 3
+    top: 0
+    left: 0
+    width: 100%
+    border-bottom: 3px solid #0f3662
+    box-shadow: 0 10px 10px 0 #0f3662
+    div,
+    a,
+      position: relative
+      z-index: 4
+    svg 
+      z-index: 4
+    .menu 
+      display: flex
+      position: fixed
+      z-index: 2
+      top: 0
+      left: 0
+      width: 100vw
+      height: 100vh
+      padding: 100px 3%
+      background-color: $primary
+      ul 
+        display: inline-block
+      a 
+        font-size: 2.4em
+        margin: 15px 0
+
+  .soc-wrap 
+    width: 30%
+
+  footer .tel svg
+    left: -40px
+
+@media screen and (max-width: 850px)
+  .logo-wrap 
+    width: 30% 
+
+  .wrapper 
+    width: 90%
+  .header-content 
+    padding: 100px 5%
+    flex-wrap: wrap
+  .info 
+    width: 100%
+  .soc
+    flex-direction: row 
+    margin: 20px auto
+    transform: translateX(0)
+
+  .about-us 
+    .flex-sb 
+      display: block
+      margin: -30px auto
+      & > div 
+        width: 100%
+        margin: 30px 0
+      .img 
+        padding: 0
+        &:before 
+          top: -5%
+          right: -3%
+        &::after
+          bottom: -10%
+          right: -1%
+
+  .preference 
+    width: calc( 30% - 2px )
+    padding: 20px 30px
+    svg 
+      max-height: 60px
+      max-width: 100%
+
+@media screen and (max-width: 690px) 
+  .info 
+    padding: 60px 30px
+
+  h1 
+    font-size: 4rem
+    line-height: 5rem
+
+  h2 
+    font-size: 3rem
+    margin-bottom: 25px 
+
+  h3 
+    font-size: 2.2rem
+  
+  .about-us p,
+  .company-description 
+    font-size: 1.8rem
+
+  .slider 
+    flex-wrap: wrap
+
+  .slider-line 
+    width: 100%
+    order: 0
+    margin: 0
+
+  .arr 
+    order: 1
+    margin: 20px
+    margin-bottom: 0
+
+  .services-line 
+    margin-bottom: 15px
+
+  .soc-wrap 
+    width: 40%
+
+@media screen and (max-width: 550px) 
+  .logo-wrap
+    width: 40%
+
+  header
+    .tel
+      display: none
+
+  .active-header
+    .tel 
+      display: block
+      position: fixed 
+      bottom: 10vh
+      left: 5%
+      z-index: 3
+      max-width: 100% 
+
+  .info 
+    padding: 60px 20px
+
+  .border 
+    display: none
+
+  .text-wrap 
+    margin: 0
+
+  .soc.flex-sb 
+    transform: translateY(-50%)
+    p 
+      height: 50px
+      width: 50px
+      a 
+        display: flex
+        align-items: center
+        height: 100%
+      svg 
+        max-height: 80%
+        height: 100%!important
+      .phone-number 
+        height: auto
+
+  .preference 
+    width: calc( 50% - 2px )
+    padding: 30px
+    svg 
+      max-height: 60px
+
+  .slider-navigation 
+    padding: 20px
+    img 
+      width: 80%
+
+  .service 
+    img 
+      max-height: 60vh
+
+@media screen and (max-width: 500px) 
+  .header-content 
+    padding: 100px 0
+
+  .slider 
+    padding: 20px
+
+  
+@media screen and (max-width: 450px) 
+  .logo-wrap 
+    width: 50%
+
+  .active-header .menu a 
+    font-size: 2rem 
+    margin: 10px 0
+  .info 
+    padding: 40px 10px
+
+  .text-wrap p 
+    font-size: 2rem
+
+  .soc.flex-sb 
+    p 
+      height: 40px
+      width: 40px
+
+  h1 
+    font-size: 3.1rem
+    line-height: 4rem
+
+  h2
+    font-size: 2.6rem
+
+  .service 
+    width: 100%
+    img 
+      max-height: 80vh
+
+  .footer-line 
+    flex-wrap: wrap
+    margin: 0 
+
+  .soc-wrap
+    width: 100%
+    text-align: center
+    margin-bottom: 20px
+
+  footer .tel 
+    max-width: 100%
+    text-align: center
+    margin: 0 auto
+    padding-left: 40px
+    box-sizing: border-box
+    svg 
+      left: 0
+
+@media screen and (max-width: 350px) 
+  h1 
+    font-size: 2.8rem
+    line-height: 3.5rem
+    letter-spacing: 4px
