@@ -1,6 +1,6 @@
 document.querySelector("header").style.paddingTop = `${document.querySelector(".header-line").getBoundingClientRect().height}px`
 
-// burger menu 
+//burger menu 
 let header = document.querySelector(".header-line"),
     burger = document.querySelector(".burger")
 
