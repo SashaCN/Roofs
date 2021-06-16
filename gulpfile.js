@@ -20,8 +20,9 @@ gulp.task("browser-sync", function(){
         },
         notify: true,
         open: true,
-        browser: "chrome"
-        // port: 8000
+        browser: "chrome",
+        tunnel: true,
+        port: 8000
     });
 });
 

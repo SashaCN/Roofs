@@ -166,6 +166,7 @@ let animParent = document.querySelectorAll(".anim-parent"),
 
 window.onwheel = checkScroll
 window.onscroll = checkScroll
+window.ontouchmove = checkScroll
     
 function checkScroll (){
   console.log(startAnim)
